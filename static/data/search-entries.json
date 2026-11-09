@@ -1,0 +1,47 @@
+[
+  {
+    "id": "3827cd40",
+    "course_name": "Introduction to Data Journalism",
+    "instructors": "Simon Rogers",
+    "school": "Northwestern University (Medill)",
+    "country": "USA",
+    "url": "https://class-descriptions.northwestern.edu/4970/JOUR/JOUR/24875",
+    "excerpt": "This course introduces students to the practice of data journalism, covering spreadsheet analysis, basic Python for data cleaning, and the use of public records to find and verify stories. Students will learn to scrape websites, work with CSV and JSON files, and build simple data visualizations using tools like Datawrapper and Flourish. Case studies include investigations into campaign finance, policing data, and climate records. By the end of the term, students will produce an original data-driven story suitable for publication, including a methodology note explaining how the data was gathered and checked for accuracy."
+  },
+  {
+    "id": "a1b2c3d4",
+    "course_name": "Datos y Periodismo",
+    "instructors": "",
+    "school": "Universidad Diego Portales",
+    "country": "Chile",
+    "url": "https://www.udp.cl/datos-y-periodismo",
+    "excerpt": "Un curso práctico sobre el uso de datos abiertos en el periodismo latinoamericano. Los estudiantes aprenderán a solicitar información pública, limpiar bases de datos con hojas de cálculo y herramientas de línea de comandos, y presentar hallazgos mediante mapas y gráficos interactivos. El curso incluye talleres sobre bases de datos gubernamentales, corrupción y transparencia, y reportería asistida por computadora, con énfasis en la verificación de fuentes y la reproducibilidad del análisis."
+  },
+  {
+    "id": "e5f6a7b8",
+    "course_name": "Computational Methods for Investigative Reporting",
+    "instructors": "Maria Santos, James O'Connell",
+    "school": "City University of London",
+    "country": "United Kingdom",
+    "url": "",
+    "excerpt": "An advanced seminar in computational methods applied to investigative reporting, covering network analysis, machine learning classifiers for document review, and statistical methods for detecting anomalies in large datasets. Students will examine case studies including the Panama Papers and the Offshore Leaks, learning how reporters used graph databases and natural language processing to surface stories from millions of leaked documents. Coursework includes a group project applying these techniques to a public dataset of the student's choosing."
+  },
+  {
+    "id": "c9d0e1f2",
+    "course_name": "Data Visualization Workshop",
+    "instructors": "Aiko Tanaka",
+    "school": "Waseda University",
+    "country": "Japan",
+    "url": "https://www.waseda.jp/data-viz-workshop",
+    "excerpt": ""
+  },
+  {
+    "id": "f3a4b5c6",
+    "course_name": "Newsroom Data Analysis",
+    "instructors": "",
+    "school": "University of Cape Town",
+    "country": "South Africa",
+    "url": "https://www.uct.ac.za/newsroom-data-analysis",
+    "excerpt": ""
+  }
+]

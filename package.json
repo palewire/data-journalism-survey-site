@@ -1,0 +1,36 @@
+{
+  "name": "data-journalism-survey-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "node scripts/build-search-index.mjs && vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "lint": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && eslint . && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "minisearch": "^7.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@sveltejs/adapter-static": "^3.0.6",
+    "@sveltejs/kit": "^2.9.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@types/node": "^22.10.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.46.0",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-svelte": "^3.2.8",
+    "svelte": "^5.2.0",
+    "svelte-check": "^4.1.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0",
+    "vite": "^5.4.11"
+  },
+  "packageManager": "pnpm@10.30.1"
+}
