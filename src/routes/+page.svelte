@@ -54,6 +54,10 @@
   const searchResults = $derived(
     isSearching ? searchEntries(entries, searchQuery, { limit: 50 }) : []
   );
+
+  function pluralize(count: number, singular: string): string {
+    return `${count.toLocaleString()} ${singular}${count === 1 ? '' : 's'}`;
+  }
 </script>
 
 <svelte:head>
@@ -69,7 +73,7 @@
 />
 
 {#if isSearching}
-  <h2 class="section-heading">Search results ({searchResults.length})</h2>
+  <p class="result-count">{pluralize(searchResults.length, 'search result')}</p>
   {#if searchResults.length === 0}
     <p class="no-results">No courses matched &ldquo;{searchQuery}&rdquo;.</p>
   {:else}
@@ -154,6 +158,14 @@
 {/if}
 
 <style>
+  /* Matches PubDate.svelte's treatment (0.8em, font-weight-light, muted). */
+  .result-count {
+    margin: 0 0 var(--space-lg);
+    color: var(--color-muted);
+    font-size: 0.8em;
+    font-weight: var(--font-weight-light);
+  }
+
   .entries.results .c-excerpt {
     color: var(--color-muted);
   }
