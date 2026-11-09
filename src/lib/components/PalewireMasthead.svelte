@@ -2,13 +2,14 @@
   The standard palewi.re masthead + nav, reused as-is across Ben's sites
   (see palewi.re's own header and the sphinx-palewire-theme nav.html).
   Links point back to palewi.re itself, since this site isn't part of
-  that domain. The gray rule below it is the "topbar" from that same
-  source (--border-topbar: solid 10px var(--color-rule)).
+  that domain. Sizes/margins below are copied from palewi.re's own
+  stylesheet (nav, .shingle, .links, .topbar rules) rather than estimated,
+  so the masthead's height and type size match exactly.
 -->
-<header class="masthead">
-  <a class="wordmark" href="https://palewi.re/">palewire</a>
-  <nav aria-label="palewi.re">
-    <ul>
+<nav aria-label="palewi.re">
+  <div class="row">
+    <a class="shingle" href="https://palewi.re/">palewire</a>
+    <ul class="links">
       <li><a href="https://palewi.re/posts/">Posts</a></li>
       <li><a href="https://palewi.re/clips/">Clips</a></li>
       <li><a href="https://palewi.re/apps/">Apps</a></li>
@@ -17,60 +18,69 @@
       <li><a href="https://palewi.re/talks/">Talks</a></li>
       <li><a href="https://palewi.re/who-is-ben-welsh/">About</a></li>
     </ul>
-  </nav>
-</header>
+  </div>
+</nav>
 <div class="topbar"></div>
 
 <style>
-  .masthead {
+  nav {
+    display: block;
+    margin: 0.625em 0;
+    font-size: 1em;
+    line-height: 1.7em;
+  }
+
+  .row {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-md);
-    padding: var(--space-md) 0 0;
   }
 
-  .wordmark {
-    font-size: var(--font-size-brand);
-    font-weight: var(--font-weight-display);
+  .shingle {
+    padding-left: 0.15em;
+    font-size: 1.7em;
+    font-weight: var(--font-weight-bold);
     color: var(--color-fg);
   }
 
-  .wordmark:visited {
+  .shingle:visited {
     color: var(--color-fg);
   }
 
-  .wordmark:hover {
+  .shingle:hover {
     color: var(--color-link);
     text-decoration: none;
   }
 
-  nav ul {
+  .links {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0 var(--space-md);
     margin: 0;
     padding: 0;
     list-style: none;
-    font-size: var(--font-size-small);
   }
 
-  nav a {
-    color: var(--color-muted);
+  .links li {
+    margin-left: 0.5em;
+    font-size: 0.9em;
+    font-weight: var(--font-weight-light);
   }
 
-  nav a:visited {
-    color: var(--color-muted);
+  .links a {
+    color: var(--color-link);
   }
 
-  nav a:hover {
-    color: var(--color-fg);
+  .links a:hover {
     text-decoration: underline;
   }
 
+  @media (max-width: 550px) {
+    .links {
+      display: none;
+    }
+  }
+
   .topbar {
-    margin: var(--space-md) 0 0;
+    margin: 0.625em 0 20px;
     border-bottom: var(--rule-topbar);
   }
 </style>

@@ -32,8 +32,10 @@
   --line-height-body: 1.55;
   --line-height-tight: 1.4;
 
-  /* Layout. */
-  --page-max-width: 1200px;
+  /* Layout. Matches palewi.re's own content column (--layout-content-width
+     in its stylesheet) so this site reads as the same width, not a wider
+     one just because it holds a table. */
+  --page-max-width: 755px;
   --page-pad-x: 20px;
 
   /* Spacing scale (used for margins/padding). */

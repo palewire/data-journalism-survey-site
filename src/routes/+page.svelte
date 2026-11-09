@@ -76,14 +76,19 @@
         <tr>
           <th scope="col">Course</th>
           <th scope="col">Excerpt</th>
-          <th scope="col">Source</th>
         </tr>
       </thead>
       <tbody>
         {#each searchResults as result (result.id)}
           <tr>
             <td class="c-title">
-              <strong>{result.course_name}</strong>
+              {#if result.url}
+                <a href={result.url} target="_blank" rel="noopener external"
+                  ><strong>{result.course_name}</strong></a
+                >
+              {:else}
+                <strong>{result.course_name}</strong>
+              {/if}
               {#if result.instructors}<br /><span class="muted">{result.instructors}</span>{/if}
               <br /><span class="muted">{result.school}</span>
             </td>
@@ -92,11 +97,6 @@
                 {result.excerpt.slice(0, 220)}{result.excerpt.length > 220 ? '…' : ''}
               {:else}
                 <span class="muted">No syllabus excerpt on file.</span>
-              {/if}
-            </td>
-            <td class="c-source">
-              {#if result.url}
-                <a href={result.url} target="_blank" rel="noopener external">View source</a>
               {/if}
             </td>
           </tr>
@@ -161,23 +161,21 @@
         <th scope="col">Instructor(s)</th>
         <th scope="col">School</th>
         <th scope="col">Country</th>
-        <th scope="col" class="c-term">Term</th>
-        <th scope="col">Source</th>
       </tr>
     </thead>
     <tbody>
       {#each filteredCourses as course (course.id)}
         <tr>
-          <td class="c-title">{course.course_name}</td>
+          <td class="c-title">
+            {#if course.url}
+              <a href={course.url} target="_blank" rel="noopener external">{course.course_name}</a>
+            {:else}
+              {course.course_name}
+            {/if}
+          </td>
           <td class="c-byline">{course.instructors}</td>
           <td>{course.school}</td>
           <td>{course.country}</td>
-          <td class="c-term">{course.year_term}</td>
-          <td>
-            {#if course.url}
-              <a href={course.url} target="_blank" rel="noopener external">View source</a>
-            {/if}
-          </td>
         </tr>
       {/each}
     </tbody>
@@ -215,12 +213,6 @@
     border: var(--rule-thin);
     background: var(--color-bg);
     color: var(--color-fg);
-  }
-
-  .entries .c-term {
-    white-space: nowrap;
-    font-family: var(--font-stack-mono);
-    color: var(--color-muted);
   }
 
   .entries.results .c-excerpt {

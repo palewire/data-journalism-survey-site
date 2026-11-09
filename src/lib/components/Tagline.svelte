@@ -11,8 +11,10 @@
 
 <style>
   p {
-    color: var(--color-muted);
-    font-weight: var(--font-weight-light);
     margin: 0 0 var(--space-lg);
+    color: var(--color-muted);
+    font-size: 1.15em;
+    font-weight: var(--font-weight-light);
+    line-height: 1.3;
   }
 </style>

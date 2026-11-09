@@ -1,35 +1,17 @@
-<script lang="ts">
-  import { base } from '$app/paths';
-</script>
-
-<header>
-  <strong><a href="{base}/">Data Journalism Survey</a></strong>
-</header>
+<!--
+  The page's own title. Sits below the palewi.re masthead
+  (PalewireMasthead.svelte) as ordinary page content, not a second
+  brand mark — sized and weighted like palewi.re's own `.content h1`
+  (2.2em, font-weight 800, line-height 130%) rather than reusing the
+  masthead's own, smaller `.shingle` type scale.
+-->
+<h1>Data Journalism Survey</h1>
 
 <style>
-  header {
-    margin: 0 0 var(--space-sm);
-    padding: var(--space-md) 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--space-md);
-  }
-
-  strong {
-    font-size: var(--font-size-brand);
+  h1 {
+    margin: 0 0 0.1em;
+    font-size: 2.2em;
     font-weight: var(--font-weight-display);
-    flex: 1 1 auto;
-  }
-
-  strong a,
-  strong a:visited {
-    color: var(--color-fg);
-    font-weight: var(--font-weight-display);
-  }
-
-  strong a:hover {
-    color: var(--color-link);
-    text-decoration: none;
+    line-height: 1.3;
   }
 </style>
