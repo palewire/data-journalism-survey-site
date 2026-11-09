@@ -545,7 +545,7 @@
   },
   {
     "id": "1064b38d",
-    "course_name": "Data Journalism (multiple years)",
+    "course_name": "Data Journalism",
     "instructors": "Amanda Cox; Kevin Quealy",
     "school": "New York University",
     "country": "USA",
@@ -783,7 +783,7 @@
   },
   {
     "id": "529b9214",
-    "course_name": "Computational Journalism (also at NYU)",
+    "course_name": "Computational Journalism",
     "instructors": "Jonathan Stray",
     "school": "New York University",
     "country": "USA",
@@ -1361,7 +1361,7 @@
   },
   {
     "id": "8e3e80cc",
-    "course_name": "Data Journalism (UF)",
+    "course_name": "Data Journalism",
     "instructors": "Adam Playford; Kathleen McGreory",
     "school": "University of Florida",
     "country": "USA",
@@ -2347,7 +2347,7 @@
   },
   {
     "id": "b12aabaf",
-    "course_name": "Data Journalism (pilot course)",
+    "course_name": "Data Journalism",
     "instructors": "Belina Bedini",
     "school": "Aleksandër Moisiu University",
     "country": "Albania",
@@ -3078,7 +3078,7 @@
   },
   {
     "id": "aa4bf20c",
-    "course_name": "Data Journalism (UF: program continues post-Lewis)",
+    "course_name": "Data Journalism",
     "instructors": "",
     "school": "University of Florida",
     "country": "USA",
@@ -3265,7 +3265,7 @@
   },
   {
     "id": "e277ffe3",
-    "course_name": "Data Journalism (university course)",
+    "course_name": "Data Journalism",
     "instructors": "",
     "school": "National University of Singapore",
     "country": "Singapore",
@@ -3539,7 +3539,7 @@
     "id": "ef55aa1b",
     "course_name": "AI-Journalism: Introduction to Statistics and Data Analysis",
     "instructors": "",
-    "school": "OsloMet - Oslo Metropolitan University",
+    "school": "OsloMet",
     "country": "Norway",
     "region": "Europe (Nordic)",
     "year_term": "Ongoing (since 2023)",
@@ -3556,7 +3556,7 @@
     "id": "feed1ec7",
     "course_name": "AI-Journalism: Investigative Journalism with Data Analysis and Programming",
     "instructors": "",
-    "school": "OsloMet - Oslo Metropolitan University",
+    "school": "OsloMet",
     "country": "Norway",
     "region": "Europe (Nordic)",
     "year_term": "Recently launched",
@@ -3573,7 +3573,7 @@
     "id": "7cc2ed12",
     "course_name": "AI-Journalism: Data Visualization and Interactive Dashboards",
     "instructors": "",
-    "school": "OsloMet - Oslo Metropolitan University",
+    "school": "OsloMet",
     "country": "Norway",
     "region": "Europe (Nordic)",
     "year_term": "Recently launched",
@@ -3590,7 +3590,7 @@
     "id": "d9c28766",
     "course_name": "AI-Journalism: Follow the Money Using AI-Journalism",
     "instructors": "",
-    "school": "OsloMet - Oslo Metropolitan University",
+    "school": "OsloMet",
     "country": "Norway",
     "region": "Europe (Nordic)",
     "year_term": "Recently launched",
@@ -3707,7 +3707,7 @@
   },
   {
     "id": "f566a015",
-    "course_name": "Data Journalism (course)",
+    "course_name": "Data Journalism",
     "instructors": "Donata Columbro",
     "school": "IULM University",
     "country": "Italy",
@@ -3741,7 +3741,7 @@
   },
   {
     "id": "35b11ce6",
-    "course_name": "Data Journalism (course)",
+    "course_name": "Data Journalism",
     "instructors": "Donata Columbro",
     "school": "Università della Svizzera italiana (USI), Lugano",
     "country": "Switzerland",
@@ -4489,7 +4489,7 @@
   },
   {
     "id": "cdaad140",
-    "course_name": "Data Journalism (current syllabus)",
+    "course_name": "Data Journalism",
     "instructors": "Sarah Cohen",
     "school": "Arizona State University",
     "country": "USA",
@@ -12309,7 +12309,7 @@
   },
   {
     "id": "3067eaf2",
-    "course_name": "Data Journalism (JOUR 307) — student homework repo",
+    "course_name": "Data Journalism (JOUR 307)",
     "instructors": "Matt Waite",
     "school": "University of Nebraska-Lincoln",
     "country": "USA",
@@ -12343,7 +12343,7 @@
   },
   {
     "id": "beadef50",
-    "course_name": "Data Journalism (NYU class — kpq's home repo)",
+    "course_name": "Data Journalism",
     "instructors": "Kio Stark / Kaeti Hinck-style (kpq) — instructor name not asserted in README",
     "school": "New York University",
     "country": "USA",
@@ -14893,7 +14893,7 @@
   },
   {
     "id": "75951581",
-    "course_name": "Advanced Data Journalism (cross-list)",
+    "course_name": "Advanced Data Journalism",
     "instructors": "",
     "school": "Stanford University",
     "country": "USA",
@@ -16185,7 +16185,7 @@
   },
   {
     "id": "3e0dd224",
-    "course_name": "Data Journalism (earlier course)",
+    "course_name": "Data Journalism",
     "instructors": "",
     "school": "University of Jyväskylä",
     "country": "Finland",
