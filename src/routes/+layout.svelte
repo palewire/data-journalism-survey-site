@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import '../app.css';
-  import { SiteFooter, SiteHeader, Tagline } from '$lib/components';
+  import { PalewireMasthead, SiteFooter, SiteHeader, Tagline } from '$lib/components';
   import type { LayoutData } from './$types';
 
   let { children, data }: { children: Snippet; data: LayoutData } = $props();
@@ -22,6 +22,7 @@
 </svelte:head>
 
 <div class="page">
+  <PalewireMasthead />
   <SiteHeader />
   <Tagline total={data.total} />
   <main>
