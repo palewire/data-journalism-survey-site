@@ -8,23 +8,37 @@
   const courses: Course[] = $derived(data.courses);
   const entries: SearchEntry[] = $derived(data.entries);
 
-  const ALL = 'All';
+  // -- Sortable table headers, default sort: course title -------------------
 
-  function uniqueSorted(values: (string | null)[]): string[] {
-    return [...new Set(values.filter((v): v is string => !!v))].sort();
+  type SortKey = 'course_name' | 'instructors' | 'school';
+  type SortDirection = 'asc' | 'desc';
+
+  let sortKey = $state<SortKey>('course_name');
+  let sortDirection = $state<SortDirection>('asc');
+
+  const textCollator = new Intl.Collator(undefined, {
+    sensitivity: 'base',
+    ignorePunctuation: true
+  });
+
+  function toggleSort(key: SortKey): void {
+    if (sortKey === key) {
+      sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+      return;
+    }
+    sortKey = key;
+    sortDirection = 'asc';
   }
 
-  const regions = $derived(uniqueSorted(courses.map((c) => c.region)));
-  const countries = $derived(uniqueSorted(courses.map((c) => c.country)));
+  function sortLabel(label: string, key: SortKey): string {
+    if (sortKey !== key) return `Sort by ${label}, currently unsorted`;
+    return `Sort by ${label}, currently ${sortDirection === 'asc' ? 'ascending' : 'descending'}`;
+  }
 
-  let selectedRegion = $state(ALL);
-  let selectedCountry = $state(ALL);
-
-  const filteredCourses = $derived(
-    courses.filter((course) => {
-      if (selectedRegion !== ALL && course.region !== selectedRegion) return false;
-      if (selectedCountry !== ALL && course.country !== selectedCountry) return false;
-      return true;
+  const sortedCourses = $derived(
+    [...courses].sort((a, b) => {
+      const order = textCollator.compare(a[sortKey], b[sortKey]);
+      return sortDirection === 'asc' ? order : -order;
     })
   );
 
@@ -49,7 +63,10 @@
   />
 </svelte:head>
 
-<SearchBox bind:value={searchQuery} placeholder="Search syllabus text, course names, schools…" />
+<SearchBox
+  bind:value={searchQuery}
+  placeholder="Search titles, teachers, schools and course materials…"
+/>
 
 {#if isSearching}
   <h2 class="section-heading">Search results ({searchResults.length})</h2>
@@ -90,38 +107,36 @@
     </table>
   {/if}
 {:else}
-  <section class="facets">
-    <div>
-      <label for="region">Region</label>
-      <select id="region" bind:value={selectedRegion}>
-        <option value={ALL}>All regions</option>
-        {#each regions as region (region)}
-          <option value={region}>{region}</option>
-        {/each}
-      </select>
-    </div>
-    <div>
-      <label for="country">Country</label>
-      <select id="country" bind:value={selectedCountry}>
-        <option value={ALL}>All countries</option>
-        {#each countries as country (country)}
-          <option value={country}>{country}</option>
-        {/each}
-      </select>
-    </div>
-  </section>
-
-  <h2 class="section-heading">Courses ({filteredCourses.length})</h2>
   <table class="entries">
     <thead>
       <tr>
-        <th scope="col" class="c-title">Course</th>
-        <th scope="col">Instructor(s)</th>
-        <th scope="col">School</th>
+        {#each [['course_name', 'Course', 'c-title'], ['instructors', 'Instructor(s)', ''], ['school', 'School', '']] as [key, label, cls] (key)}
+          <th
+            scope="col"
+            class={cls}
+            aria-sort={sortKey === key
+              ? sortDirection === 'asc'
+                ? 'ascending'
+                : 'descending'
+              : 'none'}
+          >
+            <button
+              type="button"
+              class="sort-button"
+              aria-label={sortLabel(label, key as SortKey)}
+              onclick={() => toggleSort(key as SortKey)}
+            >
+              {label}
+              <span class="sort-indicator" aria-hidden="true">
+                {sortKey === key ? (sortDirection === 'asc' ? '↑' : '↓') : '↕'}
+              </span>
+            </button>
+          </th>
+        {/each}
       </tr>
     </thead>
     <tbody>
-      {#each filteredCourses as course (course.id)}
+      {#each sortedCourses as course (course.id)}
         <tr>
           <td class="c-title">
             {#if course.url}
@@ -139,37 +154,36 @@
 {/if}
 
 <style>
-  .facets {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-    font-size: var(--font-size-table);
-  }
-
-  .facets label {
-    display: block;
-    margin-bottom: var(--space-xs);
-    color: var(--color-muted);
-    font-size: var(--font-size-small);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  .facets select {
-    width: 100%;
-    padding: 0.3em 0.4em;
-    font: inherit;
-    border: var(--rule-thin);
-    background: var(--color-bg);
-    color: var(--color-fg);
-  }
-
   .entries.results .c-excerpt {
     color: var(--color-muted);
   }
 
   .entries .c-byline {
     color: var(--color-muted);
+  }
+
+  .sort-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .sort-button:hover {
+    color: var(--color-fg);
+  }
+
+  .sort-button:focus-visible {
+    outline: 2px solid var(--color-fg);
+    outline-offset: 2px;
+  }
+
+  .sort-indicator {
+    font-size: 0.8em;
   }
 </style>

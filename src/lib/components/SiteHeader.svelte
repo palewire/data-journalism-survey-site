@@ -6,7 +6,7 @@
   e.g. palewi.re/docs/first-automated-chart/, rather than reusing the
   masthead's own, smaller `.shingle` type scale.
 -->
-<h1>Data Journalism Survey</h1>
+<h1>Data Journalism Courses</h1>
 
 <style>
   h1 {

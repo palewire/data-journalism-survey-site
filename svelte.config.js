@@ -1,7 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-const base = process.env.BASE_PATH ?? '';
+const base = process.env.BASE_PATH ?? '/docs/data-journalism-courses';
 
 if (base && (!base.startsWith('/') || base.endsWith('/'))) {
   throw new Error('BASE_PATH must start with / and must not end with /');

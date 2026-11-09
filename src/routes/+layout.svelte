@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import '../app.css';
-  import { PalewireMasthead, SiteFooter, SiteHeader, Tagline } from '$lib/components';
+  import { PalewireMasthead, PubDate, SiteFooter, SiteHeader, Tagline } from '$lib/components';
   import type { LayoutData } from './$types';
 
   let { children, data }: { children: Snippet; data: LayoutData } = $props();
@@ -25,6 +25,7 @@
   <PalewireMasthead />
   <SiteHeader />
   <Tagline total={data.total} />
+  <PubDate />
   <main>
     {@render children()}
   </main>

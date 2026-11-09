@@ -16,6 +16,7 @@
   --color-link: #686868;
   --color-link-hover: #000000;
   --color-rule: #e5e5e5;
+  --color-rule-subtle: #cccccc;
 
   /* Typography. */
   --font-stack: 'Libre Franklin', 'Helvetica', 'Liberation Sans', Arial, sans-serif;
@@ -49,6 +50,7 @@
   --rule-thin: 1px solid var(--color-rule);
   --rule-thick: 2px solid var(--color-rule);
   --rule-topbar: solid 10px var(--color-rule); /* palewi.re's masthead rule */
+  --rule-section: thin dotted var(--color-rule-subtle);
 }
 
 /* ─── Reset + body ──────────────────────────────────────────────────── */
@@ -127,7 +129,7 @@ a:active {
 .entries th,
 .entries td {
   padding: 0.55em 0.6em 0.55em 0;
-  vertical-align: middle;
+  vertical-align: top;
   border-bottom: var(--rule-thin);
 }
 
@@ -142,18 +144,12 @@ a:active {
   color: var(--color-muted);
 }
 
-.entries .c-title a {
-  color: var(--color-fg);
-  font-weight: var(--font-weight-regular);
-}
-
-.entries .c-title a:visited {
-  color: var(--color-muted);
-}
-
-.entries .c-title a:hover {
-  text-decoration: underline;
-}
+/* No .c-title link override here on purpose: palewi.re doesn't give
+   title links their own color (see a:link/a:visited in its stylesheet)
+   -- every link, including a listitem title, is the same muted gray and
+   only underlines on hover. The plain `a` rule above already matches
+   that; a special black-for-titles treatment would be our own
+   invention, not palewi.re's. */
 
 /* Section headings, used by route pages. */
 .section-heading {
