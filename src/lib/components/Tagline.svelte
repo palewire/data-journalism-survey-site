@@ -10,11 +10,12 @@
 </p>
 
 <style>
+  /* Matches div.body h1 + p in sphinx-palewire-theme: a paragraph
+     directly following the page h1 gets a tight top margin. */
   p {
-    margin: 0 0 var(--space-lg);
+    margin: 0.125em 0 var(--space-lg);
     color: var(--color-muted);
-    font-size: 1.15em;
     font-weight: var(--font-weight-light);
-    line-height: 1.3;
+    line-height: 1.45;
   }
 </style>

@@ -25,7 +25,7 @@
 <style>
   nav {
     display: block;
-    margin: 0.625em 0;
+    margin: 0.75em 0 0.5em;
     font-size: 1em;
     line-height: 1.7em;
   }
@@ -80,7 +80,7 @@
   }
 
   .topbar {
-    margin: 0.625em 0 20px;
+    margin: 0 0 20px;
     border-bottom: var(--rule-topbar);
   }
 </style>
