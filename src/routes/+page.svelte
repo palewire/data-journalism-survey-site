@@ -10,35 +10,20 @@
 
   const ALL = 'All';
 
-  /** Derives a decade label ("2020s") from a course's start year, if known. */
-  function decadeOf(course: Course): string | null {
-    if (course.start_year == null) return null;
-    return `${Math.floor(course.start_year / 10) * 10}s`;
-  }
-
   function uniqueSorted(values: (string | null)[]): string[] {
     return [...new Set(values.filter((v): v is string => !!v))].sort();
   }
 
   const regions = $derived(uniqueSorted(courses.map((c) => c.region)));
   const countries = $derived(uniqueSorted(courses.map((c) => c.country)));
-  const topicRelevances = $derived(uniqueSorted(courses.map((c) => c.topic_relevance)));
-  const entryTypes = $derived(uniqueSorted(courses.map((c) => c.entry_type)));
-  const decades = $derived(uniqueSorted(courses.map(decadeOf)).sort().reverse());
 
   let selectedRegion = $state(ALL);
   let selectedCountry = $state(ALL);
-  let selectedTopic = $state(ALL);
-  let selectedEntryType = $state(ALL);
-  let selectedDecade = $state(ALL);
 
   const filteredCourses = $derived(
     courses.filter((course) => {
       if (selectedRegion !== ALL && course.region !== selectedRegion) return false;
       if (selectedCountry !== ALL && course.country !== selectedCountry) return false;
-      if (selectedTopic !== ALL && course.topic_relevance !== selectedTopic) return false;
-      if (selectedEntryType !== ALL && course.entry_type !== selectedEntryType) return false;
-      if (selectedDecade !== ALL && decadeOf(course) !== selectedDecade) return false;
       return true;
     })
   );
@@ -124,33 +109,6 @@
         {/each}
       </select>
     </div>
-    <div>
-      <label for="topic">Topic relevance</label>
-      <select id="topic" bind:value={selectedTopic}>
-        <option value={ALL}>All</option>
-        {#each topicRelevances as topic (topic)}
-          <option value={topic}>{topic}</option>
-        {/each}
-      </select>
-    </div>
-    <div>
-      <label for="entry-type">Entry type</label>
-      <select id="entry-type" bind:value={selectedEntryType}>
-        <option value={ALL}>All</option>
-        {#each entryTypes as entryType (entryType)}
-          <option value={entryType}>{entryType}</option>
-        {/each}
-      </select>
-    </div>
-    <div>
-      <label for="decade">Decade</label>
-      <select id="decade" bind:value={selectedDecade}>
-        <option value={ALL}>All decades</option>
-        {#each decades as decade (decade)}
-          <option value={decade}>{decade}</option>
-        {/each}
-      </select>
-    </div>
   </section>
 
   <h2 class="section-heading">Courses ({filteredCourses.length})</h2>
@@ -160,7 +118,6 @@
         <th scope="col" class="c-title">Course</th>
         <th scope="col">Instructor(s)</th>
         <th scope="col">School</th>
-        <th scope="col">Country</th>
       </tr>
     </thead>
     <tbody>
@@ -175,7 +132,6 @@
           </td>
           <td class="c-byline">{course.instructors}</td>
           <td>{course.school}</td>
-          <td>{course.country}</td>
         </tr>
       {/each}
     </tbody>
@@ -189,12 +145,6 @@
     gap: var(--space-md);
     margin-bottom: var(--space-lg);
     font-size: var(--font-size-table);
-  }
-
-  @media (min-width: 640px) {
-    .facets {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
   }
 
   .facets label {
