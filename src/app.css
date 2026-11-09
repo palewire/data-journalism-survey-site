@@ -98,7 +98,18 @@ a:active {
 .page {
   max-width: var(--page-max-width);
   margin: 0 auto;
-  padding: 0 var(--page-pad-x) var(--space-xl);
+  padding: 0 0 var(--space-xl);
+}
+
+/* Side padding only kicks in once the viewport is narrower than the
+   content column itself — matches sphinx-palewire-theme's own
+   `@media (max-width: 875px) { div.body { padding: 0 20px } }`, so the
+   desktop body well isn't narrower than the real site's 755px column. */
+@media (max-width: 875px) {
+  .page {
+    padding-left: var(--page-pad-x);
+    padding-right: var(--page-pad-x);
+  }
 }
 
 /* ─── Shared classes (used by more than one component) ──────────────── */
